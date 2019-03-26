@@ -1,13 +1,13 @@
 # Datatable-inline-Edit-Free
 this is only a lib to click in some field in the table change to a input value and send the edittion to your backend
 
-# To use
+## To use
 1. Download this file
 2. in html import this js file.
 3. edit url of your backend and check if you table have id like "table" 
 
 
-# Next Features
+## Next Features
 
 * click outside the table or in another field turn the input back to text.
 * create alert to confirm the update.
