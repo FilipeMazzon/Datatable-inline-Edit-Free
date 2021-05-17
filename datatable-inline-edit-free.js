@@ -24,17 +24,33 @@ $(document).ready(function () {
         if (data.search('<input') === -1) {
             myCell.data('<input type="text" id="input' + _id + '" value="' + data + '"/>');
             var input = document.getElementById(`input${_id}`);
+            input.focus();
+            
+            input.addEventListener("focusout", function (event) {
+                        myCell.data(data);
+                    });
+            
+            input.addEventListener("click", function (event) {
+                        event.preventDefault();
+                    });
+            
             input.addEventListener("keyup", function (event) {
                 if (event.key === "Enter") {
                     event.preventDefault();
-                    var newData = {};
-                    newData[field] = input.value;
-                    updateField(_id, newData, (err) => {
-                        if (err) alert(err);
-                        else {
-                            myCell.data(input.value);
-                        }
-                    });
+                    
+                    if (input.value == data) {
+                        myCell.data(data);
+                    }
+                    else {
+                        var newData = {};
+                        newData[field] = input.value;
+                        updateField(_id, newData, (err) => {
+                            if (err) alert(err);
+                            else {
+                                myCell.data(input.value);
+                            }
+                        });
+                    }
                 }
             })
         }
