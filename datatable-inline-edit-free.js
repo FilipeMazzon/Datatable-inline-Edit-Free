@@ -31,7 +31,7 @@ $(document).ready(function () {
                     });
             
             input.addEventListener("click", function (event) {
-                        event.preventDefault();
+                        event.stopPropagation();
                     });
             
             input.addEventListener("keyup", function (event) {
